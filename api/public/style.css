@@ -1,0 +1,71 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 2rem;
+  background: linear-gradient(to right, grey, darkblue);
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+body.light {
+  background: #eee;
+  color: #222;
+}
+
+textarea, input[type=number], select {
+  font-family: monospace;
+  font-size: 1.1rem;
+  background: linear-gradient(to right, darkred, darkblue);
+  color: #eee;
+  border: 1px solid #555;
+  border-radius: 5px;
+  padding: 0.5rem;
+  resize: vertical;
+  max-width: 600px;
+  width: 90vw;
+  box-sizing: border-box;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+body.light textarea, body.light input[type=number], body.light select {
+  background: #fff;
+  color: #111;
+  border-color: #ccc;
+}
+
+button {
+  background: #4caf50;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  color: white;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background: #45a049;
+}
+
+#status {
+  font-weight: bold;
+}
+
+#waveform {
+  border: 1px solid #444;
+  border-radius: 5px;
+  background: #111;
+  width: 600px;
+  max-width: 90vw;
+  height: 100px;
+}
+
+body.light #waveform {
+  background: #ddd;
+  border-color: #999;
+}

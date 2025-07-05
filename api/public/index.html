@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bytebeat Player</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="icon" href="/favicon.ico" />
+</head>
+<body>
+  <h1>Bytebeat Player</h1>
+
+  <label for="formula">Formula:</label><br />
+  <textarea id="formula" rows="3" cols="50">t*((t>>12|t>>8)&63&t>>4)</textarea><br />
+
+  <label for="sampleRate">Sample Rate (kHz):</label><br />
+  <input id="sampleRate" type="number" min="1" max="48" value="8" step="1" /><br />
+
+  <label for="presets">Presets:</label><br />
+  <select id="presets">
+    <option value="t&t>>8">salinewin.exe - first payload</option>
+    <option value="(t>>2)*(t>>5)|t>>5">salinewin.exe - second payload</option>
+    <option value="2*(t>>5&t)-(t>>5)+t*(t>>14&14)">salinewin.exe - third payload</option>
+    <option value="t+(t&t^t>>6)-t*(t>>9&(t%16?2:6)&t>>9)">salinewin.exe - fourth payload</option>
+    <option value="t*(t^t+(t>>15|1)^(t-1280^t)>>10)">salinewin.exe - fifth payload</option>
+    <option value="t*((t/2>>10|t%16*t>>8)&8*t>>12&18)|-(t/16)+64">salinewin.exe - sixth payload</option>
+    <option value="t*(t&16384?6:5)*(4-(1&t>>8))>>(3&t>>9)|(t|t*3)>>5">salinewin.exe - seventh payload</option>
+    <option value="t*((t&4096?6:16)+(1&t>>14))>>(3&t>>8)|t>>(t&4096?3:4)">salinewin.exe - eighth payload</option>
+    <option value="t*((t&4096?t%65536<59392?7:t&7:16)^(1&t>>14))>>(3&-t>>(t&2048?2:10))">salinewin.exe - ninth payload</option>
+  </select>
+
+  <button id="play">Play</button>
+  <button id="stop">Stop</button>
+  <button id="toggleTheme">Toggle Dark/Light</button>
+  <p id="status">Status: Stopped</p>
+  <p id="error" style="color: #f55; font-weight: bold;"></p>
+
+  <canvas id="waveform" width="600" height="100"></canvas>
+
+<script src="app.js"></script>
+</body>
+</html>
