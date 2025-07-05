@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const createServer = require('vercel-node-server');
+const serverless = require('serverless-http');
 
 const app = express();
 
@@ -10,4 +10,4 @@ app.get('/', (_req, res) => {
   res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
 });
 
-module.exports = createServer(app);
+module.exports = serverless(app);
